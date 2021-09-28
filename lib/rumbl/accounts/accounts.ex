@@ -22,13 +22,6 @@ defmodule Rumbl.Accounts do
         Repo.all(User)
     end
 
-    def changeset(user, attr) do
-        user
-        |> cast(attr, [:name, :username])
-        |> validate_required([:name, :username])
-        |> validate_length(:username, min: 1, max: 20)
-    end
-
     def change_user(%User{} = user) do
         User.changeset(user, %{})
     end
